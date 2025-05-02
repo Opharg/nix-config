@@ -15,6 +15,8 @@ sudo nixos-rebuild switch --flake .
 ```
 
 Rebuild NixOS with `rb`.
+Update flake with `upd`.
+Upgrade system with `upg`.
 
 ## Credit
 [mylinuxforwork/dotfiles](https://github.com/mylinuxforwork/dotfiles) and [Andrey0189/nixos-config](https://github.com/Andrey0189/nixos-config) were used as a starting point with lots still remaining.
