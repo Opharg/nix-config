@@ -7,13 +7,13 @@
     enable = true;
 
     cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Amber";
+      package = pkgs.figtree;
+      name = "Figtree";
       size = 24;
     };
     font = {
-      package = pkgs.figtree;
-      name = "Figtree";
+      package = pkgs.helvetica-neue-lt-std;
+      name = "Helvetica Neue LT Std";
       size = 12;
     };
     iconTheme = {
@@ -41,5 +41,4 @@
       gtk-application-prefer-dark-theme = true;
     };
   };
-
 }

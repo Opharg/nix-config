@@ -12,6 +12,7 @@
     ./yazi.nix
     ./git.nix
     ./udiskie.nix
+    ./flamehot.nix
   ];
 
 }

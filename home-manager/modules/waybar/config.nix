@@ -3,7 +3,6 @@ let
   waybar-style = builtins.readFile ./waybar-style.css;
 in
 {
-
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
@@ -12,7 +11,6 @@ in
 
     settings = [
       {
-
         #General Settings
         layer = "top";
         margin-top = 1;
@@ -171,8 +169,7 @@ in
             " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}";
           "tooltip-format-disconnected" = "Disconnected";
           "max-length" = 50;
-          "on-click" = "kitty 
-          nmtui";
+          "on-click" = "kitty nmtui";
           "on-click-right" = "~/.config/ml4w/scripts/nm-applet.sh toggle";
         };
 
@@ -287,10 +284,7 @@ in
           "on-scroll-up" = "playerctl --player=spotify next";
           "on-scroll-down" = "playerctl --player=spotify previous";
         };
-
       }
-
     ];
-
   };
 }

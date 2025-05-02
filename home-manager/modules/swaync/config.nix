@@ -42,8 +42,8 @@ in
         "title"
         "notifications"
         "dnd"
-
       ];
+      
       widget-config = {
         "title" = {
           "text" = "Notifications";
@@ -57,8 +57,8 @@ in
           "max-lines" = 1;
           "text" = "Notification";
         };
-
       };
+
       notification-visibility = {
         "spotify-transient" = {
           app-name = "Spotify";

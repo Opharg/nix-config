@@ -21,7 +21,6 @@
           "fade, 1, 10, default"
           "workspaces, 1, 5, wind"
         ];
-
       };
     };
   };

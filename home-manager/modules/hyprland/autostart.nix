@@ -32,7 +32,6 @@
         # force active workspace, because in my setup the HDMI is considered primary over DP
         "hyprctl dispatch focusmonitor DP-1" # NOTE: May need to be changed
       ];
-
     };
   };
 }

@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   config,
   ...
@@ -9,10 +8,6 @@
     ./hardware-configuration.nix
     ./packages.nix
     ./modules/bundle.nix
-  ];
-
-  nixpkgs.overlays = [
-    inputs.kickstart-nix-nvim.overlays.default
   ];
 
   # Bootloader.

@@ -1,8 +1,10 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, system, ... }:
 let
-  figtree = pkgs.callPackage ./modules/figtree/default.nix { };
+  #figtree = pkgs.callPackage ./modules/figtree/default.nix { };
 in
 {
+
+
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
@@ -26,6 +28,18 @@ in
     ];
   };
 
+  nixpkgs.overlays = [
+  #  inputs.kickstart-nix-nvim.overlays.default
+    (final: prev: {
+      flameshot = prev.flameshot.override {
+        enableWlrSupport = true;
+      };
+    })
+     (final: prev: {
+      figtree = prev.callPackage ./modules/figtree/default.nix { };
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     # Desktop apps
     calibre
@@ -41,6 +55,7 @@ in
     spotify
     spotifywm
     yazi
+    flameshot
 
     # Gaming
     # gamemode
@@ -89,7 +104,6 @@ in
     neovim
     nixd
     nixfmt-rfc-style
-    nvim-pkg # idk, doesn't work
     vscode
 
     # Wayland
@@ -101,6 +115,8 @@ in
     glib
     gnome-themes-extra
     papirus-icon-theme
+    gsettings-desktop-schemas
+    adwaita-icon-theme
 
     # WM
     brightnessctl
@@ -117,7 +133,6 @@ in
 
     # Other
     gnome-keyring
-    home-manager
     udiskie
 
     # NVIDIA
@@ -137,14 +152,20 @@ in
     wgpu-utils
   ];
 
-  fonts.packages = with pkgs; [
-    helvetica-neue-lt-std
-    iosevka
-    nerd-fonts.fira-code
-    nerd-fonts.fira-mono
+  fonts = {
+    fontconfig.enable = true;
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
 
-    figtree
-  ];
+    packages = with pkgs; [
+      helvetica-neue-lt-std
+      iosevka
+      nerd-fonts.fira-code
+      nerd-fonts.fira-mono
+
+      figtree
+    ];
+  };
 
   environment.pathsToLink = [
     "${pkgs.glib}/bin"

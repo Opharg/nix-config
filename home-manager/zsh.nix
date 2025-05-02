@@ -11,7 +11,6 @@
         src = zsh-autocomplete;
         file = "share/zsh-autocomplete/zsh-autocomplete.plugin.zsh";
       }
-
     ];
 
     shellAliases =
@@ -23,9 +22,6 @@
         rb = "sudo nixos-rebuild switch --flake ${flakeDir}";
         upd = "sudo nix flake update --flake ${flakeDir}";
         upg = "sudo nixos-rebuild switch --upgrade --flake ${flakeDir}";
-
-        hms = "home-manager switch --flake ${flakeDir}";
-        hmn = "home-manager news --flake ${flakeDir}";
 
         conf = "nvim ${flakeDir}/nixos/configuration.nix";
         pkgs = "nvim ${flakeDir}/nixos/packages.nix";
@@ -62,7 +58,6 @@
       ];
       theme = "agnoster";
     };
-
   };
 
   programs.fzf = {

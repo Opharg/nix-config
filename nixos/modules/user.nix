@@ -8,10 +8,11 @@ in
   users = {
     defaultUserShell = pkgs.zsh;
 
-    users.js = {  # NOTE: change username
-      
+    users.js = {
+      # NOTE: change username
+
       isNormalUser = true;
-      description = "js";  # NOTE: change username
+      description = "js"; # NOTE: change username
       extraGroups = [
         "networkmanager"
         "wheel"

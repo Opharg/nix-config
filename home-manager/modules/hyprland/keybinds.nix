@@ -3,7 +3,7 @@
     settings = {
       "$mainMod" = "SUPER";
       bind = [
-        "$mainMod, SPACE, exec,"
+        "$mainMod, SPACE, exec," # capture keyboard layout swap
 
         # Applications
         #"$mainMod, B, exec, google-chrome-stable --password-store=kwallet5 # Open Chrome with Kwallet
@@ -12,45 +12,35 @@
         "$mainMod, Q, exec, kitty"
         "$mainMod, E, exec, kitty yazi"
 
-        "$mainMod CTRL, E, exec, ~/.config/ml4w/settings/emojipicker.sh # Open the emoji picker"
-        "$mainMod CTRL, C, exec, ~/.config/ml4w/settings/calculator.sh # Open the calculator"
-
         # Windows
-        "$mainMod, W, killactive # Kill active window"
-        "$mainMod, F, fullscreen # Set active window to fullscreen"
-        "$mainMod, T, togglefloating # Toggle active windows into floating mode"
-        "$mainMod, J, togglesplit # Toggle split"
-        "$mainMod, left, movefocus, l # Move focus left"
-        "$mainMod, right, movefocus, r # Move focus right"
-        "$mainMod, up, movefocus, u # Move focus up"
-        "$mainMod, down, movefocus, d # Move focus down"
-        "$mainMod SHIFT, right, resizeactive, 100 0 # Increase window width with keyboard"
-        "$mainMod SHIFT, left, resizeactive, -100 0 # Reduce window width with keyboard"
-        "$mainMod SHIFT, down, resizeactive, 0 100 # Increase window height with keyboard"
-        "$mainMod SHIFT, up, resizeactive, 0 -100 # Reduce window height with keyboard"
-        "$mainMod, G, togglegroup # Toggle window group"
-        "$mainMod, K, swapsplit # Swapsplit"
+        "$mainMod, W, killactive"
+        "$mainMod, F, fullscreen"
+        "$mainMod, T, togglefloating"
+        "$mainMod, J, togglesplit"
+        "$mainMod, left, movefocus, l"
+        "$mainMod, right, movefocus, r"
+        "$mainMod, up, movefocus, u"
+        "$mainMod, down, movefocus, d"
+        "$mainMod SHIFT, right, resizeactive, 100 0"
+        "$mainMod SHIFT, left, resizeactive, -100 0"
+        "$mainMod SHIFT, down, resizeactive, 0 100"
+        "$mainMod SHIFT, up, resizeactive, 0 -100"
+        "$mainMod, G, togglegroup" # Toggle window group
+        "$mainMod, K, swapsplit"
 
         # Actions
-        "$mainMod SHIFT, A, exec, $HYPRSCRIPTS/toggle-animations.sh # Toggle animations"
-        "$mainMod, PRINT, exec, flameshot gui --clipboard --path ~/Pictures/screenshots # Take a screenshot"
-        "$mainMod SHIFT, S, exec, flameshot gui --clipboard --path ~/Pictures/screenshots # Take a screenshot"
-        "$mainMod CTRL, Q, exec, ~/.config/ml4w/scripts/wlogout.sh" # Start wlogout
-        "$mainMod SHIFT, W, exec, waypaper --random" # Change the wallpaper
+        "$mainMod SHIFT, S, exec, flameshot gui --clipboard --path ~/Pictures/screenshots" # Take a screenshot
         "$mainMod CTRL, W, exec, waypaper" # Open wallpaper selector
-        "$mainMod ALT, W, exec, $HYPRSCRIPTS/wallpaper-automation.sh" # Start random wallpaper script
+        "$mainMod SHIFT, W, exec, waypaper --random" # Change the wallpaper
         "$mainMod, SUPER_L, exec, pkill rofi || rofi -show drun -replace -i" # Open application launcher
-        "$mainMod CTRL, K, exec, $HYPRSCRIPTS/keybindings.sh" # Show keybindings
-        "$mainMod SHIFT, B, exec, waybar" # Reload waybar
-        "$mainMod CTRL, B, exec, pkill waybar && pkill -f \"waybar-mediaplayer.py\"" # Toggle waybar
-        "$mainMod SHIFT, R, exec, $HYPRSCRIPTS/loadconfig.sh" # Reload hyprland config
-        "$mainMod, V, exec, $SCRIPTS/cliphist.sh" # Open clipboard manager
-        "$mainMod CTRL, T, exec, ~/.config/waybar/themeswitcher.sh" # Open waybar theme switcher
-        "$mainMod CTRL, S, exec, ~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage" # Open ML4W Dotfiles Settings app
+        "$mainMod SHIFT, B, exec, waybar" # Start waybar
+        "$mainMod CTRL, B, exec, pkill waybar && pkill -f \"waybar-mediaplayer.py\"" # Quit waybar
+        "$mainMod, L, exec, hyprlock" # Lock screen
+        "$mainMod SHIFT, R, exec, hyprctl reload" # Reload hyprland config
+
+        "$mainMod SHIFT, A, exec, $HYPRSCRIPTS/toggle-animations.sh" # Toggle animations
+        "$mainMod ALT, W, exec, $HYPRSCRIPTS/wallpaper-automation.sh" # Start random wallpaper script
         "$mainMod SHIFT, H, exec, $HYPRSCRIPTS/hyprshade.sh" # Toggle screenshader
-        "$mainMod ALT, G, exec, $HYPRSCRIPTS/gamemode.sh" # Toggle game mode
-        "$mainMod, Z, exec, missioncenter" # Open Mission Center
-        "$mainMod, L, exec, hyprlock" # Open Mission Center
 
         # Workspaces
         "$mainMod, 1, workspace, 1" # Open workspace 1
@@ -78,17 +68,6 @@
         "$mainMod, Tab, workspace, m+1" # Open next workspace
         "$mainMod SHIFT, Tab, workspace, m-1" # Open previous workspace
 
-        # "$mainMod CTRL, 1, exec, $HYPRSCRIPTS/moveTo.sh 1" # Move all windows to workspace 1
-        # "$mainMod CTRL, 2, exec, $HYPRSCRIPTS/moveTo.sh 2" # Move all windows to workspace 2
-        # "$mainMod CTRL, 3, exec, $HYPRSCRIPTS/moveTo.sh 3" # Move all windows to workspace 3
-        # "$mainMod CTRL, 4, exec, $HYPRSCRIPTS/moveTo.sh 4" # Move all windows to workspace 4
-        # "$mainMod CTRL, 5, exec, $HYPRSCRIPTS/moveTo.sh 5" # Move all windows to workspace 5
-        # "$mainMod CTRL, 6, exec, $HYPRSCRIPTS/moveTo.sh 6" # Move all windows to workspace 6
-        # "$mainMod CTRL, 7, exec, $HYPRSCRIPTS/moveTo.sh 7" # Move all windows to workspace 7
-        # "$mainMod CTRL, 8, exec, $HYPRSCRIPTS/moveTo.sh 8" # Move all windows to workspace 8
-        # "$mainMod CTRL, 9, exec, $HYPRSCRIPTS/moveTo.sh 9" # Move all windows to workspace 9
-        # "$mainMod CTRL, 0, exec, $HYPRSCRIPTS/moveTo.sh 10" # Move all windows to workspace 10
-
         # "$mainMod, mouse_down, workspace, e+1" # Open next workspace
         # "$mainMod, mouse_up, workspace, e-1" # Open previous workspace
         # "$mainMod CTRL, down, workspace, empty" # Open the next empty workspace
@@ -112,7 +91,7 @@
         ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle" # Toggle microphone
         ", XF86Calculator, exec, ~/.config/ml4w/settings/calculator.sh" # Open calculator
         ", XF86Lock, exec, hyprlock" # Open screenlock
-        ", XF86Tools, exec, $(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/apps/ML4W_Dotfiles_Settings-x86_64.AppImage" # Open ML4W Dotfiles Settings app
+        ", XF86Tools, exec, kitty"
 
         # ", code:238, exec, brightnessctl -d smc::kbd_backlight s +10
         # ", code:237, exec, brightnessctl -d smc::kbd_backlight s 10-

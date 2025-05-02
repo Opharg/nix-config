@@ -29,6 +29,13 @@
         "pin, title:^(Picture-in-Picture)$"
         "move 69.5% 4%, title:^(Picture-in-Picture)$"
 
+        # Flameshot
+        "noanim, class:^(flameshot)$"
+        "float, class:^(flameshot)$"
+        "move 0 0, class:^(flameshot)$"
+        "pin, class:^(flameshot)$"
+        "monitor 0, class:^(flameshot)$"  # has to be the leftmost monitor
+
         # others
         "workspace 3,class:^(Spotify)$"
         "workspace 2,class:^(discord)$"

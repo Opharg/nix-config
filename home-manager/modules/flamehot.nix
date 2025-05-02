@@ -1,0 +1,20 @@
+{ pkgs, ... }:
+{
+  services.flameshot = {
+    enable = true;
+    package = pkgs.flameshot;
+    settings = {
+      General = {
+        autoCloseIdleDaemon = true;
+        buttons = ''@Variant(\0\0\0\x7f\0\0\0\vQList<int>\0\0\0\0\x12\0\0\0\0\0\0\0\x1\0\0\0\x2\0\0\0\x3\0\0\0\x4\0\0\0\x5\0\0\0\x6\0\0\0\x12\0\0\0\xf\0\0\0\x13\0\0\0\b\0\0\0\t\0\0\0\x10\0\0\0\n\0\0\0\v\0\0\0\x17\0\0\0\xe\0\0\0\f)'';
+        contrastOpacity = 188;
+        disabledGrimWarning = true;
+        disabledTrayIcon = false;
+        saveAsFileExtension = "png";
+        savePath = "/home/js/Pictures/screenshots";
+        savePathFixed = true;
+        showHelp = false;
+      };
+    };
+  };
+}
