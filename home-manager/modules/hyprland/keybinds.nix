@@ -8,10 +8,14 @@
         # Applications
         #"$mainMod, B, exec, google-chrome-stable --password-store=kwallet5 # Open Chrome with Kwallet
 
-        "$mainMod, B, exec, /run/current-system/sw/bin/zen-beta" # zen-beta, zen fails to get libEGL since ~Apr3; also specify sysrem package
+        "$mainMod, B, exec, /run/current-system/sw/bin/zen-twilight"
         "$mainMod, Q, exec, kitty"
         "$mainMod, E, exec, kitty yazi"
 
+        # magnifier
+        ''$mainMod ALT, mouse_up, exec, hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') - 0.1}")''
+        ''$mainMod ALT, mouse_down, exec, hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') + 0.1}")''
+        
         # Windows
         "$mainMod, W, killactive"
         "$mainMod, F, fullscreen"

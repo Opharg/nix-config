@@ -5,10 +5,10 @@ let
     repo = "plugins";
     # NOTE: old rev/hash because git.yazi got version bumped before builds got out.
     #rev = "2a35325c7f2054d56f90d98f4595689a61a27e3b";
-    rev = "b12a9ab085a8c2fe2b921e1547ee667b714185f9";
+    rev = "55bf6996ada3df4cbad331ce3be0c1090769fc7c";
     #hash = "sha256-cmWpuxb1dLk+QHindGftC5JuFRGxDTEepVyxWToOyfc=";
 
-    hash = "sha256-LWN0riaUazQl3llTNNUMktG+7GLAHaG/IxNj1gFhDRE=";
+    hash = "sha256-v/C+ZBrF1ghDt1SXpZcDELmHMVAqfr44iWxzUWynyRk=";
   };
 in
 {
@@ -21,11 +21,16 @@ in
     settings = {
       manager = {
         show_hidden = true;
+
+        sort_reverse = true;
         sort_dir_first = true;
+        sort_by = "alphabetical";
+        sort_translit = true;
       };
       preview = {
         max_width = 1000;
         max_height = 1000;
+        tab_size = 4;
       };
       plugin = {
         prepend_fetchers = [

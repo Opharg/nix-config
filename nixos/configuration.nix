@@ -28,7 +28,8 @@
     ];
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
   # chaotic AUR / cachyOS kernel
   # boot.kernelPackages = pkgs.linuxPackages_cachyos;
   # services.scx.enable = true; # by default uses scx_rustland scheduler
@@ -58,7 +59,20 @@
     };
   };
 
-  networking.hostName = "nixos";
+  networking = {
+    hostName = "nixos";
+    firewall.enable = true;
+    # firewall.allowedUDPPorts = [
+    #   9987
+    #   2010
+    # ];
+    # firewall.allowedTCPPorts = [
+    #   30033
+    #   10011
+    #   4144
+    #   2008
+    # ];
+  };
   # networking.wireless.enable = true;
 
   # Time zone.

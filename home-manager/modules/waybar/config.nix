@@ -13,7 +13,7 @@ in
       {
         #General Settings
         layer = "top";
-        margin-top = 1;
+        margin-top = -1;
         margin-bottom = 0;
         margin-left = 0;
         margin-right = 0;
@@ -213,7 +213,7 @@ in
               ""
             ];
           };
-          "on-click" = "pwvucontrol";
+          "on-click" = "pavucontrol";
         };
 
         # Bluetooth
@@ -281,8 +281,8 @@ in
           "format" = "{}  ";
           "return-type" = "json";
           "on-click" = "playerctl --player=spotify play-pause";
-          "on-scroll-up" = "playerctl --player=spotify next";
-          "on-scroll-down" = "playerctl --player=spotify previous";
+          "on-scroll-up" = "playerctl --player=spotify previous";
+          "on-scroll-down" = "playerctl --player=spotify next";
         };
       }
     ];

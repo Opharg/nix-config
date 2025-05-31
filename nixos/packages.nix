@@ -1,16 +1,25 @@
-{ pkgs, inputs, system, ... }:
+{
+  pkgs,
+  inputs,
+  system,
+  lib,
+  ...
+}:
 let
   #figtree = pkgs.callPackage ./modules/figtree/default.nix { };
 in
 {
-
-
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
       "python-2.7.18.8"
       "electron-25.9.0"
     ];
+    allowUnfreePredicate =
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        "teamspeak-server"
+      ];
   };
 
   programs.nix-ld.enable = true;
@@ -28,14 +37,25 @@ in
     ];
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 5175 ];
+  };
+
+  # services.teamspeak3 = {
+  #   enable = true;
+  #   openFirewall = true;
+  #   openFirewallServerQuery = true;
+  # };
+
   nixpkgs.overlays = [
-  #  inputs.kickstart-nix-nvim.overlays.default
+    #  inputs.kickstart-nix-nvim.overlays.default
     (final: prev: {
       flameshot = prev.flameshot.override {
         enableWlrSupport = true;
       };
     })
-     (final: prev: {
+    (final: prev: {
       figtree = prev.callPackage ./modules/figtree/default.nix { };
     })
   ];
@@ -45,20 +65,24 @@ in
     calibre
     discord
     firefox
-    inputs.zen-browser.packages."${system}".default
+    inputs.zen-browser.packages."${system}".twilight
     kitty
     krita
     mpv
     obs-studio
-    #pavucontrol
-    pwvucontrol
+    pavucontrol
+    #pwvucontrol  # Doesn't respect darkmode
     spotify
     spotifywm
     yazi
     flameshot
+    
+
+    # TeamSpeak
+    teamspeak6-client
 
     # Gaming
-    # gamemode
+    gamemode
     # mangohud
     # protonup-qt
 
@@ -87,6 +111,8 @@ in
     wl-clipboard
     zoxide
     zsh-autocomplete
+    go-mtpfs
+    wget
 
     # Python
     (python3.withPackages (
@@ -105,6 +131,7 @@ in
     nixd
     nixfmt-rfc-style
     vscode
+    
 
     # Wayland
     rofi-wayland
@@ -123,12 +150,13 @@ in
     dmenu
     hyprland
     hyprlock
-    hyprpaper
+    #hyprpaper
     libnotify
     rofi-wayland
     swaynotificationcenter
     waybar
     waypaper
+    swww
     wlogout
 
     # Other
